@@ -1,0 +1,29 @@
+services:
+  # ── 後端 API (FastAPI) ─────────────────────────────────
+  - type: web
+    name: 0050-thermometer-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ALLOWED_ORIGINS
+        # 部署後請把這裡改成你的 Vercel 前端網址
+        value: https://0050-thermometer.vercel.app
+    healthCheckPath: /health
+
+  # ── 前端靜態網站 (React/Vite) ──────────────────────────
+  - type: web
+    name: 0050-thermometer-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        # 部署後請把這裡改成你的 Render 後端網址
+        value: https://0050-thermometer-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
