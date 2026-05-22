@@ -9,6 +9,10 @@ venv/
 # Backend cache (rebuilt at runtime)
 backend/cache/
 
+# Data files are generated at build time, but we commit the initial seed
+# so the first GitHub Pages deployment has something to show.
+# Subsequent updates are handled by GitHub Actions.
+
 # Node
 frontend/node_modules/
 frontend/dist/

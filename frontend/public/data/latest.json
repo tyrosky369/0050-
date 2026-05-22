@@ -1,0 +1,89 @@
+{
+  "temperature": 41.1,
+  "scores": {
+    "rsi": 67.4,
+    "kd": 47.4,
+    "macd": 8.7,
+    "bias": 59.8,
+    "bollinger": 79.2,
+    "volume_ratio": 59.8,
+    "foreign": 2.8,
+    "etf_holders": 50.0,
+    "margin": 32.9,
+    "big_holder": 50.0,
+    "short": 30.2
+  },
+  "data_real": {
+    "rsi": true,
+    "kd": true,
+    "macd": true,
+    "bias": true,
+    "bollinger": true,
+    "volume_ratio": true,
+    "foreign": true,
+    "etf_holders": false,
+    "margin": true,
+    "big_holder": false,
+    "short": true
+  },
+  "price": 97.3,
+  "price_change_pct": 1.51,
+  "updated_at": "2026-05-23 00:08",
+  "meta": {
+    "rsi": {
+      "label": "RSI 相對強弱",
+      "weight": 0.1,
+      "category": "technical"
+    },
+    "kd": {
+      "label": "KD 隨機指標",
+      "weight": 0.08,
+      "category": "technical"
+    },
+    "macd": {
+      "label": "MACD 動能",
+      "weight": 0.09,
+      "category": "technical"
+    },
+    "bias": {
+      "label": "均線乖離率",
+      "weight": 0.12,
+      "category": "technical"
+    },
+    "bollinger": {
+      "label": "布林通道 %B",
+      "weight": 0.06,
+      "category": "technical"
+    },
+    "volume_ratio": {
+      "label": "方向量均比",
+      "weight": 0.05,
+      "category": "technical"
+    },
+    "foreign": {
+      "label": "外資買賣超",
+      "weight": 0.15,
+      "category": "chip"
+    },
+    "etf_holders": {
+      "label": "ETF 受益人數",
+      "weight": 0.08,
+      "category": "chip"
+    },
+    "margin": {
+      "label": "融資餘額",
+      "weight": 0.1,
+      "category": "chip"
+    },
+    "big_holder": {
+      "label": "大戶持股",
+      "weight": 0.1,
+      "category": "chip"
+    },
+    "short": {
+      "label": "融券餘額",
+      "weight": 0.07,
+      "category": "chip"
+    }
+  }
+}

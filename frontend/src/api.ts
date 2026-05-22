@@ -1,20 +1,19 @@
 import type { TemperatureData, HistoryPoint } from './types'
 
-// In production, VITE_API_URL points to the deployed backend (e.g. https://xxx.onrender.com)
-// In development, Vite proxies /api → http://localhost:8000
-const BASE = import.meta.env.VITE_API_URL
-  ? `${import.meta.env.VITE_API_URL}/api`
-  : '/api'
+// import.meta.env.BASE_URL is set by Vite:
+//   - local dev:  "/"
+//   - GitHub Pages: "/0050-/"  (via VITE_BASE_PATH in CI)
+const DATA = `${import.meta.env.BASE_URL}data`
 
 export async function fetchTemperature(): Promise<TemperatureData> {
-  const res = await fetch(`${BASE}/temperature`)
-  if (!res.ok) throw new Error(`API error ${res.status}`)
+  const res = await fetch(`${DATA}/latest.json`)
+  if (!res.ok) throw new Error('無法載入資料')
   return res.json()
 }
 
 export async function fetchHistory(): Promise<HistoryPoint[]> {
-  const res = await fetch(`${BASE}/history`)
-  if (!res.ok) throw new Error(`API error ${res.status}`)
+  const res = await fetch(`${DATA}/history.json`)
+  if (!res.ok) throw new Error('無法載入歷史資料')
   const json = await res.json()
   return json.data as HistoryPoint[]
 }
