@@ -68,7 +68,7 @@ export default function Gauge({ value }: GaugeProps) {
   return (
     <div className="flex flex-col items-center">
       <svg
-        viewBox="0 0 400 230"
+        viewBox="0 0 400 200"
         className="w-full max-w-sm"
         aria-label={`溫度計 ${clampedVal}`}
       >
@@ -186,23 +186,22 @@ export default function Gauge({ value }: GaugeProps) {
         <circle cx={CX} cy={CY} r={12} fill="#1F2937" />
         <circle cx={CX} cy={CY} r={6}  fill="#F9FAFB" />
 
-        {/* Temperature value */}
-        <text
-          x={CX}
-          y={CY - NEEDLE_LEN - 12}
-          textAnchor="middle"
-          fontSize="36"
-          fontWeight="700"
-          fill={zone.color}
-          fontFamily="sans-serif"
+      </svg>
+
+      {/* Large temperature number */}
+      <div className="flex items-baseline gap-1 -mt-3">
+        <span
+          className="text-8xl font-black tabular-nums leading-none"
+          style={{ color: zone.color }}
         >
           {clampedVal.toFixed(1)}
-        </text>
-      </svg>
+        </span>
+        <span className="text-2xl font-semibold text-gray-400 mb-1">°</span>
+      </div>
 
       {/* Zone badge */}
       <span
-        className="mt-1 px-4 py-1 rounded-full text-white text-sm font-semibold tracking-wide"
+        className="mt-2 px-6 py-1.5 rounded-full text-white text-base font-bold tracking-widest"
         style={{ backgroundColor: zone.color }}
       >
         {zone.label}
